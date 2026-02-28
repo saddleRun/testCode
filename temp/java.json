@@ -1,0 +1,467 @@
+{
+	// Place your snippets for java here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	"Print to console": {
+		"prefix": "log",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	},
+	"logger": {
+		"prefix": "logger",
+		"body": [
+			"private static final Logger logger = LoggerFactory.getLogger($1.class);"
+		],
+		"description": "logger"
+	},
+	"out": {
+		"prefix": "out",
+		"body": [
+		  "System.out.println($0);"
+		],
+		"description": "out"
+	  },
+	"ternary": {
+	"prefix": "Ternary",
+	"body": [
+		"String result = (condition) ? \"True\" : \"False\";"
+	],
+	"description": "ternary"
+	},
+	"ifElse": {
+		"prefix": "ifElse",
+		"body": [
+			"if (i < 15){",
+			"    System.out.println(\"i is smaller than 15\");",
+			"} else {",
+			"    System.out.println(\"i is greater than 15\");",
+			"}"
+		],
+		"description": "ifCond"
+	},
+	"System out": {
+		"prefix": "out",
+		"body": [
+			"System.out.println(\"============= $0\" + );"
+		],
+		"description": "System out"
+	},
+	"array": {
+		"prefix": "intArray",
+		"body": [
+			"int[] columnWidths = {20, 100, 30}"
+		],
+		"description": "array"
+	},
+	"string list to array": {
+		"prefix": "stringListToArray",
+		"body": [
+			"List<String> names = Arrays.asList(\"John\", \"Paul\", \"George\");",
+			"String[] namesArray = names.toArray(new String[0]);"
+		],
+		"description": "string list to array"
+	},
+	"for each": {
+		"prefix": "forEach",
+		"body": [
+			// apply the same function to all elements in teh list
+			"List<String> names = Arrays.asList(\"John\", \"Paul\", \"George\");",
+			"names.forEach(name -> {",
+			"    System.out.println(name);",
+			"});"
+		],
+		"description": "for each"
+	},
+	"for each stream": {
+		"prefix": "forEachStream",
+		"body": [
+			// apply the same function to all elements in teh list
+			".forEach(x -> System.out.println(x));"			
+		],
+		"description": "for each"
+	},
+	"runnable": {
+		"prefix": "runnable",
+		"body": [
+			"Runnable r1 = () -> {",
+            "    System.out.println(\"Hello from Lambda Runnable\");",
+            "};",
+			"Thread t2 = new Thread(r1);",
+            "t2.start();"
+		],
+		"description": "runnable"
+	},
+	"sleep": {
+		"prefix": "sleep",
+		"body": [
+			"try {",
+			"    Thread.sleep(1000);",
+			"} catch (InterruptedException e) {",
+			"    e.printStackTrace();",
+			"}"
+		],
+		"description": "sleep"
+	},	
+	"chartostring":{
+		"prefix": "chartostring",
+		"body": [
+			"String s = Character.toString(c);",
+		],
+		"description": "char to string"
+	},
+	"string to char array": {
+		"prefix": "stringtochararray",
+		"body": [
+			"String s = \"Hello\";",
+			"char[] chars = s.toCharArray();"
+		],
+		"description": "string to char array"
+	},
+	"callable": {
+		"prefix": "callable",
+		"body": [
+			"Callable callable = () -> { return \"Hello, World!\";};",  
+			" //ExecutorService executor = Executors.newSingleThreadExecutor();",  
+        	" //executor.submit(callable);",  
+        	" //executor.shutdown();",            
+		],
+		"description": "callable"
+	},	
+	"predicate": {
+		"prefix": "predicate",
+		"body": [
+			"Predicate<Integer> isEven = (n) -> n % 2 == 0;",
+            "isEven.test(4);",
+            "isEven.test(5);"
+		],
+		"description": "predicate"
+	},
+	"supplier": {
+		"prefix": "supplier",
+		"body": [
+			"Supplier<Double> randomValueSupplier = () -> Math.random();",
+			"randomValueSupplier.get();"
+		],
+		"description": "supplier"
+	},
+	"consumer": {
+		"prefix": "consumer",
+		"body": [
+			"Consumer<String> printUpperCase = (s) -> System.out.println(s.toUpperCase());",
+            "printUpperCase.accept(\"hello world\");"
+		],
+		"description": "consumer"
+	},		
+	"function": {
+		"prefix": "function",
+		"body": [
+			"Function<String, Integer> stringLength = str -> str.length();",
+            "stringLength.apply(\"Hello\"))"
+		],
+		"description": "function"
+	},
+	"bifunction": {
+		"prefix": "bifunction",
+		"body": [
+			"BiFunction<Integer, Integer, Integer> multiply = (a, b) -> a * b;",
+            "multiply.apply(4, 5);"
+		],
+		"description": "bifunction"
+	},	
+	"unaryoperator": {
+		"prefix": "unaryoperator",
+		"body": [
+			"UnaryOperator<Integer> square = (n) -> n * n;",
+			"square.apply(5);"
+		],
+		"description": "unaryoperator"
+	},
+	"collect to list": {
+		"prefix": "collectList",
+		"body": [
+			".collect(Collectors.toList());"			
+		],
+		"description": "collect to list"
+	},	
+	"collect to set": {
+		"prefix": "collectSet",
+		"body": [
+			".collect(Collectors.toSet());"			
+		],
+		"description": "collect to set"
+	},
+	"collect to map": {
+		"prefix": "collectMap",
+		"body": [
+			".collect(Collectors.toMap(k -> k, v -> 1, (x, y) -> x + y));"			
+		],
+		"description": "collect to map"
+	},
+	"range": {
+		"prefix": "range",
+		"body": [
+			"IntStream.range(1, 5)."			
+		],
+		"description": "int range"
+	},
+	"executorservice": {
+		"prefix": "executorservice",
+		"body": [
+			"ExecutorService executor = Executors.newSingleThreadExecutor();"			
+		],
+		"description": "executorservice"
+	},
+	"completablefuture": {
+		"prefix": "completablefuture",
+		"body": [
+			"CompletableFuture.supplyAsync(() -> {});"			
+		],
+		"description": "completablefuture"
+	},	
+	"writeToFile": {
+		"prefix": "writeToFile",
+		"body": [
+			"Path filePath = Paths.get(\"myFile.txt\");",
+			"Files.createFile(filePath);",
+			"String content = \"Hello World\";",
+			"Files.write(filePath, content.getBytes());"			
+		],
+		"description": "writeToFile"
+	},
+	"readFromFile": {
+		"prefix": "readFromFile",
+		"body": [
+			"Path filePath = Paths.get(\"myFile.txt\");",
+			"List<String> lines = Files.readAllLines(filePath);"	
+		],
+		"description": "readFromFile"
+	},	
+	"for in": {
+		"prefix": "forIn",
+		"body": [
+		  "List<String> authors = Arrays.asList(\"John\", \"Paul\", \"George\");",
+			"for (String author : authors) {",
+			"    System.out.println(author);",
+			"}"
+		],
+		"description": "for in"
+	},
+	"for loop": {
+		"prefix": "forLoop",
+		"body": [
+			"int[] columnWidths = { 10, 20, 30, 40, 50, 60, };",
+			"for(int i=0; i<6; i++) {",
+			"    System.out.println(columnWidths[i]);",
+			"}"
+		],
+		"description": "for loop"
+	},
+	"Matcher": {
+		"prefix": "matcher",
+		"body": [
+			"private static final String REGEX = \"^Experimental Properties \\\\(EPROP\\\\)\";",
+			"private static final Pattern PATTERN = Pattern.compile(REGEX, Pattern.MULTILINE);",
+			"Matcher matcher = PATTERN.matcher(displayRecord);",
+			"if (matcher.find()) {",
+			"   int start = matcher.start();",
+			"   int end = matcher.end();",
+			"   String group01 = matcher.group(1);",
+			"}"
+		],
+		"description": "Matcher"
+	},
+	"arrayAsList": {
+		"prefix": "arrayAsList",
+		"body": [
+			"String a[] = new String[] { \"A\", \"B\", \"C\", \"D\" };",
+			"List<String> list = Arrays.asList(a);"
+		],
+		"description": "array as list"
+	},
+	"HashSet": {
+		"prefix": "HashSet",
+		"body": [
+			"Set<String> displayFormats = new HashSet<>();",
+			"displayFormats.add(\"John\");",
+			"displayFormats.add(\"ALL\");"
+		],
+		"description": "HashSet"
+	},
+	"ArrayList": {
+		"prefix": "ArrayList",
+		"body": [
+			"Collection<StringReplacement> replacements = new ArrayList<>();",
+			"replacements.add(new StringReplacement(matcher.start() + 2, matcher.end(), StringUtils.EMPTY));"
+		],
+		"description": "ArrayList"
+	},
+	"List iterator": {
+		"prefix": "listIterator",
+		"body": [
+			"List<String> authors = Arrays.asList(\"John\", \"Paul\", \"George\");",
+			"Iterator<String> iterator = authors.iterator();",
+			"while (iterator.hasNext()) {",
+			"    System.out.println(iterator.next());",
+			"}"
+		],
+		"description": "List iterator"
+	},
+	"forEachRemaining Iterator": {
+		"prefix": "forEachRemainingIterator",
+		"body": [
+			"List<String> authors = Arrays.asList(\"John\", \"Paul\", \"George\");",
+			"Iterator<String> iterator = authors.iterator();",
+			"iterator.forEachRemaining((author) -> System.out.println(author));",
+			"iterator.forEachRemaining(System.out::println);"
+		],
+		"description": "forEachRemaining Iterator"
+	},
+	"method name": {
+		"prefix": "methodName",
+		"body": [
+			"String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();"
+		],
+		"description": "method name"
+	},
+	"stream filter": {
+		"prefix": "streamFilter",
+		"body": [
+			"List<FieldTitle> strFields = fieldTitles.stream().filter(title -> STR_FIELD.equals(title.getFieldCode())).collect(Collectors.toList());"
+		],
+		"description": "stream filter"
+	},
+	// "stream Map": {
+	// 	"prefix": "streamMap",
+	// 	"body": [
+	// 		"// Map StringBuilders to Strings",
+	// 		"List<String> strFields = builders.stream().map(StringBuilder::toString).collect(Collectors.toList());"
+	// 	],
+	// 	"description": "stream Map"
+	// },
+	"char Stream":{
+		"prefix": "charStream",
+		"body": [
+			"chars()."
+		],
+		"description": "string to char stream"
+	},
+	"reduce Stream":{
+		"prefix": "reduceStream",
+		"body": [
+			".reduce(0, (a, b) -> a + b);"
+		],
+		"description": "stream reduce"
+	},
+	"map Stream":{
+		"prefix": "mapStream",
+		"body": [
+			".map(x -> x + 1)"
+		],
+		"description": "stream map"
+	},
+	"flatMap Stream":{
+		"prefix": "flatMapStream",
+		"body": [
+			".flatMap(x -> x.stream())"
+		],
+		"description": "stream map"
+	},
+	"filter stream":{
+		"prefix": "filterStream",
+		"body": [
+			".filter(x -> x > 1)"
+		],
+		"description": "stream map"
+	},
+	"scanner":{
+		"prefix": "scanner",
+		"body": [
+			"try (var scanner = new Scanner(System.in)) {",
+			"    String line =  scanner.nextLine();",
+			" }",
+			""
+		],
+		"description": "scanner"
+	},
+	"file":{
+		"prefix": "file",
+		"body": [
+			"Path filePath = Paths.get(\"example.txt\");",
+			"try {",
+			"    Files.createFile(filePath);",
+			"",
+			"    String content = \"Hello, Java NIO!\";",
+			"    Files.write(filePath, content.getBytes());",
+			"",
+			"    List<String> lines = Files.readAllLines(filePath);",
+			"} catch (IOException e) {",
+            "    e.printStackTrace();",
+        	"}"
+		],
+		"description": "scanner"
+	},
+	"stream filter forEach": {
+		"prefix": "streamFilterForEach",
+		"body": [
+			"//  stream filter forEach",
+			"List<String> names = Arrays.asList(\"John\", \"Paul\", \"George\");",
+			"names.stream().filter(name -> (!\"John\".equals(name))",
+			"     .forEach(name -> {",
+			"         System.out.println(name)",
+			"      });"
+		],
+		"description": "stream filter forEach"
+	},
+	"enum Type": {
+		"prefix": "enumType",
+		"body": [
+			"public enum DownloadType {",
+			"    HTML, RTF, PDF, TXT, ZIP, ZRTF, ZPDF",
+			"}",
+			"",
+			"DownloadType  type = DownloadType.HTML;",
+			"String strinType = type.name();"
+		],
+		"description": "enum Type"
+	},
+	"switch Enums": {
+		"prefix": "switchEnums",
+		"body": [
+			"enum Cars { BMW, JEEP, AUDI; }",
+			"",
+			"       // Declaring Enum variable",
+			"       Cars c;",
+			"       c = Cars.AUDI;",
+			"       // Switch keyword",
+			"       switch (c) {",
+			"       // Case statements",
+			"           case BMW:",
+			"               System.out.println(\"You choose BMW !\");",
+			"               break;",
+			"           case JEEP:",
+			"               System.out.println(\"You choose JEEP !\");",
+			"               break;",
+			"           case AUDI:",
+			"               System.out.println(\"You choose AUDI !\");",
+			"               break;",		
+			"           default:",
+			"               System.out.println(\"NEW BRAND'S CAR.\");",
+			"               break;",
+			"           }",
+			""
+		],
+		"description": "switch Enums"
+	},
+	"suppressPrintln": {
+		"prefix": "switchEnums",
+		"body": [
+			"@SuppressWarnings (\"PMD.SystemPrintln\")"
+		],
+		"description": "suppressPrintln"
+	}	  	
+}

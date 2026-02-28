@@ -1,0 +1,65 @@
+build.sh
+
+alias build="cd web && gulp build-non-versioned && cd .."
+alias buildDev="cd web && gulp dev-clean-hint && cd .."
+alias buildA="cd web && gulp rebuild && cd .."
+alias eslint="cd web && gulp eslint-check && cd .."
+alias jshint="cd web && gulp jshint-check && cd .."
+alias buildR="cd web && npm run build-dev && cd .."
+alias buildC='mvn clean package -Dpmd.skip=true -DskipTests -Pback-end-dev -pl core,web'
+alias buildD='mvn clean package -Dpmd.skip=true -DskipTests -Pback-end-dev -pl core,document-server'
+alias buildW='mvn clean package -DskipTests -Pback-end-dev'
+alias buildwC='mvn clean package -Dmaven.test.skip=true -pl core,web'
+alias chrometest="gulp unit-test --browser --chrome_headless"
+alias install="mvn -T1C clean install -DskipTests -DskipRest -l ~/repos/pack.txt"
+alias pack="mvn -T1C clean package -U -DskipTests -DskipRest -l ~/repos/packC.txt"
+alias packC="mvn -T1C clean package -DskipTests"
+alias comp="mvn -T1C clean compile"
+alias installU="mvn -T1C clean install -U -DskipTests -DskipRest"
+alias installCU="mvn -T1C clean install -U -DskipTests"
+alias install2='mvn -T1C clean install  -Dmaven.test.skip=true -DskipRest'
+alias karma='node_modules/.bin/karma start karma.conf.js --no-single-run'
+alias tests='mvn -Dtest=UnmappedFieldsBuilderTest test -l ~/repos/test.txt'
+alias httpT='mvn verify -pl httpTest -Dexec.skip -l ~/repos/httpT.txt'
+alias reactT='npm run test-jest -t SearchButton.spec.tsx'
+alias reactTA='npm run test-jest'
+alias purge='mvn dependency:purge-local-repository'
+alias mlist='mvn dependency:list'
+alias idea='/home/haj25/IntelliJ/idea-IU-233.14808.21/bin/idea.sh > /dev/null 2>&1 &'
+alias code='/usr/bin/code .. > /dev/null 2>&1 &'
+alias e2e="./script/run_e2e_tests.sh -r all_scenarios -L https://stn-dev.cas.org/ -T '-t @TestId_320'"
+alias e2eFolder="./script/run_e2e_tests.sh -L http://yourVM-desktop.planaria.cloud.cas.org/ -f features/scenarios/file_wizard"
+alias e2eFeature="./script/run_e2e_tests.sh -L http://haj25-desktop.planaria.cloud.cas.org/ -f features/scenarios/alerts/alerts_page.feature"
+alias controllerTest="mvn test -Dtest=ReportRestControllerTest -Dpmd.skip=true -Pback-end-dev -pl web -l ~/repos/build.txt"
+
+====
+
+
+docker.sh
+alias start='docker-compose build  && ../scripts/minimal_local_startup.sh'
+alias stopMCApp='../scripts/shutdown.sh && docker-compose down'
+alias stop='../scripts/stack_shutdown.sh  && docker-compose down'
+alias jLog='docker logs -f docker-compose_jetty_1 --since 1s'
+alias rmI='docker rmi -f $(docker images -q)'
+alias rmC='docker rm $(docker ps -aq)'
+alias stopJ='docker stop docker-compose_jetty_1'
+alias startJ='docker start docker-compose_jetty_1'
+alias startRJ='docker start docker-compose_report-server_1 docker-compose_jetty_1'
+alias startAJ='docker start docker-compose_apache_1 docker-compose_jetty_1'
+alias stopAJ='docker stop docker-compose_apache_1 docker-compose_jetty_1'
+alias stopRJ='docker stop docker-compose_report-server_1 docker-compose_jetty_1'
+alias dockerNames='docker ps --format {{.Names}}'
+alias dockerIDs='docker ps --format {{.ID}}'
+alias dockerImg='docker ps --format {{.Image}}'
+
+
+========git.sh
+alias pushBR='git push origin HEAD:refs/for/feature/parsed-data'
+alias fetchR='git fetch; git pull --rebase'
+alias gitlog='git --no-pager log --graph --all --oneline > git-history.txt'
+echo 'git checkout -b PLAN-13674 origin/feature/parsed-data'
+echo 'git checkout -b PLAN-15982 v1.0.2"
+# git fetch --all --tags // Fetch the latest tags and branches from the remote
+# git tag // Check available tags
+# git checkout -b new-branch-name tag-name // Create a branch from a local tag
+# git checkout -b new-branch-name origin/tags/tag-name // Create a branch from a remote tag
